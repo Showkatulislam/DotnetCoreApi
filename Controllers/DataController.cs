@@ -1,6 +1,7 @@
 using System.Collections;
 using Ecommerceapi.Context;
 using Ecommerceapi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -15,8 +16,9 @@ public class DataController:ControllerBase
    {
      this.dataContext=dataContext;
    }
+
    [HttpGet]
- 
+ [Authorize]
  public async Task<ActionResult<IEnumerable<Product>>> GetAll(){
     if(dataContext.Products==null){
         return NotFound();

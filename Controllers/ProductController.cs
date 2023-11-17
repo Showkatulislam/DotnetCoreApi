@@ -7,7 +7,7 @@ namespace Ecommerceapi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-
+[Authorize]
 public class ProductController:ControllerBase{
 
     private readonly IProductService productService;
